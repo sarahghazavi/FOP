@@ -360,7 +360,7 @@ void FileCounter(char *path, int *counter)
             strcat(path, entry->d_name);
             FileCounter(path, counter);
         }
-        else if (entry->d_type != DT_DIR)
+        else if (entry->d_type != DT_DIR && strcmp(entry->d_name, "info.txt"))
             (*counter)++;
     }
     while (path[strlen(path) - 1] != '/')
